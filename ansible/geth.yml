@@ -1,0 +1,20 @@
+---
+- hosts: rails
+  remote_user: root
+  become: yes
+  tasks:
+    - name: Update all packages to the latest version
+      apt:
+        upgrade: dist
+    - name: Enable geth launchpad repository
+      become: yes 
+      shell: |
+          add-apt-repository -y ppa:ethereum/ethereum
+    - name: Update package lists 
+      become: yes 
+      shell: |
+          apt update
+    - name: Install stable go-etherium
+      become: yes 
+      shell: | 
+          apt -y install ethereum

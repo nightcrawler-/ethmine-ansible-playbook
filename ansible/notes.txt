@@ -1,0 +1,14 @@
+# start mining, with your wallet address
+geth --miner.etherbase '0x9e27D5996f7417581886CbA9dd6C70643C8d7742' --mine 2>> geth.log
+
+# To run in bg:
+https://unix.stackexchange.com/questions/4004/how-can-i-run-a-command-which-will-survive-terminal-close/4010#4010?newreg=e2b79c93017b404c8a7b9e79d6ec31e6
+
+# open js console
+geth attach
+
+# sync status:
+eth.syncing
+
+# hashrate
+eth.hashrate
