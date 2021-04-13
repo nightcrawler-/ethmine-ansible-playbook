@@ -5,7 +5,7 @@ The configuration files in this repository will enable you quickly provision a V
 ## Prerequisites - Ubuntu 18.04 LTS
 1. An Etherium wallet (The address)
 2. A mining pool, available at https://ethermine.org/start. It does not require registration, and will deposit as little as 0.01 ETH ($18 ca. Feb, 2021).
-3. A remote VM instance with python installed, and required ssh settings configured.
+3. A remote VM instance with python installed, and required ssh settings configured. `sudo apt-get install python`
 
 # What will be setup: 
 
