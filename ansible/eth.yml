@@ -13,12 +13,33 @@
     - name: Unpack ethminer
       become: yes 
       shell: |
-          tar xvfz ethminer-0.19.0-alpha.0-cuda-9-linux-x86_64.tar.gz 
-    - name: Move into ethminer dir
+          tar xvfz ethminer-0.19.0-alpha.0-cuda-9-linux-x86_64.tar.gz
+    - name: Download the Ubuntu 18.04 driver repo
       become: yes 
       shell: |
-          cd bin
+          curl -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+    - name: Move repo
+      become: yes
+      shell: |
+          mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+    - name: Fetch keys
+      become: yes
+      shell: |
+          apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+    - name: Add repo
+      become: yes
+      shell: |
+          add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+    - name: Update package lists 
+      become: yes 
+      shell: |
+          apt update
+    - name: Install CUDA, which includes NVIDIA driver
+      become: yes 
+      shell: | 
+          apt -y install cuda
+
     - name: Start mining!
       become: yes
       shell: | 
-          ./ethminer -P stratums://0x9e27D5996f7417581886CbA9dd6C70643C8d7742@eu1.ethermine.org:5555
+          ./bin/ethminer -P stratums://0x9e27D5996f7417581886CbA9dd6C70643C8d7742@eu1.ethermine.org:5555
