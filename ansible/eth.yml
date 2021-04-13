@@ -1,0 +1,24 @@
+---
+- hosts: rails
+  remote_user: root
+  become: yes
+  tasks:
+    - name: Update all packages to the latest version
+      apt:
+        upgrade: dist
+    - name: Download ethminer
+      become: yes 
+      shell: |
+          wget https://github.com/ethereum-mining/ethminer/releases/download/v0.19.0-alpha.0/ethminer-0.19.0-alpha.0-cuda-9-linux-x86_64.tar.gz
+    - name: Unpack ethminer
+      become: yes 
+      shell: |
+          tar xvfz ethminer-0.19.0-alpha.0-cuda-9-linux-x86_64.tar.gz 
+    - name: Move into ethminer dir
+      become: yes 
+      shell: |
+          cd bin
+    - name: Start mining!
+      become: yes
+      shell: | 
+          ./ethminer -P stratums://0x9e27D5996f7417581886CbA9dd6C70643C8d7742@eu1.ethermine.org:5555
