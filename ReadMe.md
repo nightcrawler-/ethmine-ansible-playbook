@@ -18,6 +18,15 @@ The configuration files in this repository will enable you quickly provision a V
 Setup the VM ip addresses in the inventory file, to ping:
 `ansible -i ansible/inventory -m ping rails`
 
+##  Note:
+
+Before starting mining, you will need to install compatible CUDA and NVIDIA drivers for your platform. (GPU Drivers)
+https://cloud.google.com/compute/docs/gpus/install-drivers-gpu#ubuntu-driver-steps
+
+### To run:
+Inside the ansible dir:
+`ansible-playbook -i inventory eth.yml`
+
 ###
 
 #### Important notes/links
