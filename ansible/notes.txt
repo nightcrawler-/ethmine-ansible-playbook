@@ -1,7 +1,10 @@
 A few things on using geth for CPU mining. 
 
 # start mining, with your wallet address
-geth --miner.etherbase '0x9e27D5996f7417581886CbA9dd6C70643C8d7742' --mine 2>> geth.log
+geth --datadir "/datadrive" --miner.etherbase '0x9e27D5996f7417581886CbA9dd6C70643C8d7742' --mine 2>> geth.log
+
+# start with this to use a specific directory
+geth --datadir "/datadrive"
 
 # To run in bg:
 TL;DR
@@ -18,3 +21,58 @@ eth.syncing
 
 # hashrate
 eth.hashrate
+
+
+/home/frederick/Dev/cafrecode/ssh
+
+ansible-playbook -i inventory --private-key /home/frederick/Dev/cafrecode/ssh/azure.pem geth.yml  
+
+
+# mount disk, azure
+find it:
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+
+partition it:
+sudo parted /dev/sdb --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdb1
+
+mount it:
+sudo mkdir /datadrive
+
+automount on reboot:
+sudo blkid
+
+# StraitPay Wed 14/04/21
+
+- Other supported crypt curr, digital wallets - sendwave, paypal
+- APIs, documentation from partners?
+- Teck aspect: feasibility: requirements? 
+- scope?
+- KYC + crypto" implications on anonymity?
+
+##
+- Afro Euro to KE
+Financial Conduct Auth -- Regulations KE? 
+
+UK AC-- Mobile, GBP/EUR -- to KES?
+SWIFT - PAY - KE? 
+Cust acc - deatils? vaerification validations of transactions? confirmations?
+
+Exp:
+STG!
+Cust minues-app2app? all in one?
+
+KC? Kele Okafor!
+
+remittances?
+PSP Ls.
+IMT Ls.
+
+I frame, flexibility to customize the, tailor the iframe?
+APIs available from the app? any sort of integration?
+Aside from the iframe and the redirects to a different app from the main?
+Friction 
+
+Auth0.
+
+- Exchange rates? 
