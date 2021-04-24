@@ -35,8 +35,20 @@ Download ethminer (source): https://github.com/ethereum-mining/ethminer/archive/
 Linux Distro: https://github.com/ethereum-mining/ethminer/releases/download/v0.19.0-alpha.0/ethminer-0.19.0-alpha.0-cuda-9-linux-x86_64.tar.gz
 Unpack ethminer (All this can be inferred from the included playbook, eth.yml)
 
-#### Extra
+#### Extra - mining command, with etherium address you wanna use. This should be mine, from blockchain.com
 ./ethminer -P stratums://0x9e27D5996f7417581886CbA9dd6C70643C8d7742@eu1.ethermine.org:5555
+
+# In this directory
+
+## ethermine.yml
+
+Provisions an Ubuntu 18.04 LTS VM, that has a GPU, with all the necessary drivers, mining software, and starts mining right away.
+
+## geth.yml
+
+Provisions an Ubuntu 18.04 LTS VM, with the go-etherium and etherium software, I deal to sync the net and establish a node from which `Clef` or other tools can be used. Will allow you to process transactions on the network.
+
+
 
 
 
